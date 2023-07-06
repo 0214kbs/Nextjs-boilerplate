@@ -23,17 +23,14 @@
     "typescript": "5.1.6"
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "^7.1.0-beta.0",
-    "@storybook/addon-interactions": "^7.1.0-beta.0",
-    "@storybook/addon-links": "^7.1.0-beta.0",
-    "@storybook/addon-onboarding": "^1.0.3",
-    "@storybook/blocks": "^7.1.0-beta.0",
-    "@storybook/nextjs": "^7.1.0-beta.0",
-    "@storybook/react": "^7.1.0-beta.0",
-    "@storybook/testing-library": "^0.2.0",
-    "@types/styled-components": "^5.1.26",
+    "@storybook/addon-essentials": "^7.0.26",
+    "@storybook/addon-interactions": "^7.0.26",
+    "@storybook/addon-links": "^7.0.26",
+    "@storybook/blocks": "^7.0.26",
+    "@storybook/nextjs": "^7.0.26",
+    "@storybook/react": "^7.0.26",
+    "@storybook/testing-library": "^0.0.14-next.2",
     "eslint-plugin-storybook": "^0.6.12",
-    "sb": "^7.0.26",
-    "storybook": "^7.1.0-beta.0"
+    "storybook": "^7.0.26"
   }
 }

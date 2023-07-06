@@ -1,12 +1,11 @@
-"use client"
+"use client";
 import React from "react";
-import { Form } from "./Login.layout";
+import { LoginLayout } from "./Login.layout";
 
-const Login = ({onSubmit}:any) => {
-
+const Login = ({ onSubmit }: any) => {
   return (
     <>
-      <Form onSubmit={onSubmit}>
+      <LoginLayout onSubmit={onSubmit}>
         <h2>로그인</h2>
         <br />
 
@@ -15,7 +14,7 @@ const Login = ({onSubmit}:any) => {
         <div style={{ width: "100%", marginTop: "10px" }}>
           <button type="submit">로그인</button>
         </div>
-      </Form>
+      </LoginLayout>
     </>
   );
 };

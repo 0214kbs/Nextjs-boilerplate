@@ -1,7 +1,7 @@
-"use client"
+"use client";
 import styled from "styled-components";
 
-const Form = styled.form<any>`
+const LoginLayout = styled.form<any>`
   margin: 100px auto;
   width: 420px;
   padding: 50px;
@@ -9,4 +9,4 @@ const Form = styled.form<any>`
   border-radius: 5px;
 `;
 
-export { Form };
+export { LoginLayout };

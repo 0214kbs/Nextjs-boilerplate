@@ -1,9 +1,7 @@
-import React from 'react'
+// import React from "react";
+// import Button from "./Button";
+// const ButtonComponent = () => {
+//   return <Button >ButtonComponent</Button>;
+// };
 
-const ButtonComponent = () => {
-  return (
-    <div>ButtonComponent</div>
-  )
-}
-
-export default ButtonComponent
+// export default ButtonComponent;
