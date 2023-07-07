@@ -1,10 +1,5 @@
 import styled from "styled-components";
-
-interface getButtonStyles {
-  primary?: boolean;
-  bgcolor?: string;
-  size?: "small" | "medium" | "large";
-}
+import { getButtonStyles } from "./button.type";
 
 const ButtonSizes = {
   small: `

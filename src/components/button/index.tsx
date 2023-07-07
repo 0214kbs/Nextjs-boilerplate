@@ -1,7 +1,15 @@
-// import React from "react";
-// import Button from "./Button";
-// const ButtonComponent = () => {
-//   return <Button >ButtonComponent</Button>;
-// };
+import React from "react";
+import Button from "./Button";
+import { ButtonProps } from "./button.type";
 
-// export default ButtonComponent;
+const ButtonComponent = ({ primary = false, size = "medium", bgcolor, label, ...props }: ButtonProps) => {
+    return (
+        <>
+          <Button primary={primary} size={size} bgcolor={bgcolor}>
+            {label}
+          </Button>
+        </>
+      )
+};
+
+export default ButtonComponent;
