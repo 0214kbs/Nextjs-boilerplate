@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 interface getButtonStyles {
   primary?: boolean;
-  bgcolor: string;
-  size: "small" | "medium" | "large";
+  bgcolor?: string;
+  size?: "small" | "medium" | "large";
 }
 
 const ButtonSizes = {
@@ -23,6 +23,7 @@ const ButtonSizes = {
 
 const StyledButton = styled.button<getButtonStyles>`
   font-weight: 700;
+  border : 0px;
   border-radius: 3em;
   cursor: pointer;
   display: inline-block;

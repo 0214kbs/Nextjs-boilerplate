@@ -3,7 +3,7 @@ import { StyledButton } from "./Button.styled";
 
 interface ButtonProps {
   primary?: boolean;
-  bgcolor: string;
+  bgcolor?: string;
   size?: "small" | "medium" | "large";
   label: string;
   onClick?: () => void;
