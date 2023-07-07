@@ -1,5 +1,6 @@
+import Navbar from '@/components/common/navbar/Navbar'
 import StyledComponentsRegistry from './lib/registry'
- 
+
 export default function RootLayout({
   children,
 }: {
@@ -8,7 +9,10 @@ export default function RootLayout({
   return (
     <html>
       <body>
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        <StyledComponentsRegistry>
+          <Navbar />
+          {children}
+        </StyledComponentsRegistry>
       </body>
     </html>
   )
