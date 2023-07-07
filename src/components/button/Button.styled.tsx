@@ -24,8 +24,9 @@ const StyledButton = styled.button<getButtonStyles>`
   display: inline-block;
   line-height: 1;
 
-  color: ${({ primary }) => (primary ? "white" : "black")};
+  color: ${({ primary = false }) => (primary ? "white" : "black")};
   ${({ size }) => ButtonSizes[size || "medium"]}
+
   background-color: ${({ bgcolor }) => bgcolor};
 `;
 
