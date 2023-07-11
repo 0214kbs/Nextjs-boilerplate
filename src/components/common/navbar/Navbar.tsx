@@ -24,7 +24,7 @@ const Navbar = () => {
         <header>
             <StyledNav>
                 <StyledNavLink href="/">
-                    <Image src="/cow.jpg" width={50} height={50} alt="Logo"></Image>
+                    <Image src="/cow.jpg" width={50} height={50} priority={true} alt="Logo"></Image>
                 </StyledNavLink>
                 <NavLinks>
                     {isLogin ? (
