@@ -1,8 +1,7 @@
 "use client";
 import React from "react";
 import { RadioProps } from "./Radio.type";
-
-const Radio = ({ id, value, name, label, onChange, ...props }: RadioProps) => {
+const RadioComponent = ({ id, value, name, label, onChange, ...props }: RadioProps) => {
     return (
         <div>
             <input
@@ -17,4 +16,4 @@ const Radio = ({ id, value, name, label, onChange, ...props }: RadioProps) => {
     );
 };
 
-export default Radio;
+export default RadioComponent;

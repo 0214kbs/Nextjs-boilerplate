@@ -1,11 +1,12 @@
-interface RadioInterface {
+"use client";
+export interface RadioInterface {
     id: number;
     value: string;
     name: string;
     label: string;
 }
 
-type RadioProps = {
+export type RadioProps = {
     id: number;
     value: string;
     name: string;
