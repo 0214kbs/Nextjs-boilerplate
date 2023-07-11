@@ -1,4 +1,3 @@
-"use client";
 export interface ButtonProps {
   primary?: boolean;
   bgcolor?: string;
