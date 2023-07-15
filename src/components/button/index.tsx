@@ -1,13 +1,13 @@
 import React from "react";
-import Button from "./Button";
 import { ButtonProps } from "./button.type";
+import { StyledButton } from "./Button.styled";
 
-const ButtonComponent = ({ primary, size = "medium", bgcolor, label, type, ...props }: ButtonProps) => {
+const ButtonComponent = (props: ButtonProps) => {
   return (
     <>
-      <Button primary={primary} size={size} bgcolor={bgcolor} label={label} type={type} />
+      <StyledButton {...props}>{props.label || "Button"}</StyledButton>
     </>
-  )
+  );
 };
 
 export default ButtonComponent;

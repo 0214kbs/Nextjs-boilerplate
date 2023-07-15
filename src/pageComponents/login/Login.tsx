@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { LoginLayout } from "./Login.layout";
-import Button from "@/components/button/Button";
+import Button from "@/components/button";
 const Login = ({ onSubmit }: any) => {
   return (
     <>

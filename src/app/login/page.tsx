@@ -1,15 +1,7 @@
-"use client"
+"use client";
 import React from "react";
-import Login from "./Login";
+import Login from "@/pageComponents/login";
 
-const LoginPage = () => {
-    
-  const onSubmit = async (e: any) => {
-    e.preventDefault();
-    console.log("click");
-  };
-
-  return <Login onSubmit={onSubmit}></Login>;
-};
-
-export default LoginPage;
+export default function page() {
+  return <Login></Login>;
+}
