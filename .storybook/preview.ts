@@ -1,5 +1,5 @@
 import type { Preview } from "@storybook/react";
-import theme from "../src/app/DefaultTheme";
+import theme from "../src/styles/DefaultTheme";
 import { ThemeProvider } from "styled-components";
 import { withThemeFromJSXProvider } from "@storybook/addon-styling";
 

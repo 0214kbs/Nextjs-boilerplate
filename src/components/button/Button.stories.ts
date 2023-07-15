@@ -46,11 +46,11 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const PrimaryBlueButton: Story = {
+export const PrimaryButton: Story = {
   args: {},
 };
 
-export const SecondaryBlueButton: Story = {
+export const SecondaryButton: Story = {
   args: {
     use: "secondary",
   },

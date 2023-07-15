@@ -1,8 +1,8 @@
 import React from "react";
-import { ButtonProps } from "./button.type";
+import { ButtonStyles } from "./button.type";
 import { StyledButton } from "./Button.styled";
 
-const ButtonComponent = (props: ButtonProps) => {
+const ButtonComponent = (props: ButtonStyles) => {
   return (
     <>
       <StyledButton {...props}>{props.label || "Button"}</StyledButton>

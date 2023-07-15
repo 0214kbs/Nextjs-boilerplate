@@ -1,11 +1,16 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { StyledNav, StyledNavLink, NavLinks } from "./NavBar.styled";
 import Image from "next/image";
-import { useLogin } from "@/hooks/useLogin";
+import useLoginStore from "@/stores/useLoginStore";
 
 const NavbarComponent = () => {
-  const { isLogin, onLogout, onLogin } = useLogin();
+  const isLogin = useLoginStore((state: any) => state.isLogin);
+  const loginState = useLoginStore((state: any) => state.logout);
+
+  const changeLoginState = () => {
+    loginState();
+  };
 
   const onCreateAccount = () => {
     console.log("create account");
@@ -19,13 +24,11 @@ const NavbarComponent = () => {
         </StyledNavLink>
         <NavLinks>
           {isLogin ? (
-            <StyledNavLink href="/" onClick={onLogout}>
+            <StyledNavLink href="/" onClick={changeLoginState}>
               로그아웃
             </StyledNavLink>
           ) : (
-            <StyledNavLink href="/login" onClick={onLogin}>
-              로그인
-            </StyledNavLink>
+            <StyledNavLink href="/login">로그인</StyledNavLink>
           )}
           <StyledNavLink href="/signup" onClick={onCreateAccount}>
             회원가입
