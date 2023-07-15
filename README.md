@@ -1,34 +1,88 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Front boilerplate
+
+## 사용 기술 스택
+
+| Next.js(v13.4.8) | React(v18.2.0) | TypeScript(v5.1.6) | Node(v16.20.1) | storybook(v7.0.26) | styled-component(v6.0.2) | zustand(v4.3.9) |
+| :--------------: | :------------: | :----------------: | :------------: | :----------------: | :----------------------: | :-------------: |
+|    ![nextjs]     |    ![react]    |        ![ts]       |     ![node]    |      ![sb]         |           ![sc]          |                 |
+
+## 개발 환경
+
+|  Eslint(v8.2.0)   | Prettier(v3.0.0) |
+| :---------------: | :--------------: |
+|     ![eslint]     |    ![prettier]   |
+
+
+## 폴더 구조
+```
+│   .eslintrc.json 
+│   .gitignore
+│   .prettierrc
+│   next-env.d.ts
+│   next.config.js
+│   package-lock.json
+│   package.json
+│   README.md
+│   tsconfig.json
+├───.storybook                          # Storybook 설정
+│       main.ts
+│       preview.ts
+├───public                              # 정적 파일들
+│       cow.jpg
+└───src
+    ├───apis                            # API 호출과 관련된 코드들
+    │       api.ts         
+    ├───app                             # 앱 관련 디렉터리 
+    │   │   layout.tsx
+    │   │   page.tsx
+    │   ├───lib
+    │   │       registry.tsx
+    │   └───login                       # 로그인 페이지
+    │           page.tsx                    # 로그인 페이지 정의 : 아래 로그인 페이지 컴포넌트만 호출 
+    ├───components                      # 재사용 가능한 컴포넌트들
+    │   ├───button                      # Button 컴포넌트
+    │   │       Button.stories.ts           # storybook docs
+    │   │       Button.styled.tsx           # styled-component 적용한 버튼 
+    │   │       Button.type.ts              # 버튼 컴포넌트에 사용할 type 정의
+    │   │       index.tsx                   # 버튼 컴포넌트 정의
+    │   ├───common
+    │   │   └───navbar                  # Navbar 컴포넌트
+    │   │           index.tsx               # Navbar 컴포넌트 정의 : <Link> 사용 참고 
+    │   │           Navbar.styled.tsx       # styled-component 적용
+    │   └───input
+    ├───hooks                           # React Custom Hooks
+    │       useInputHook.tsx                # 입력 컴포넌트에 사용되는 custom hook 정의 
+    ├───pageComponents                  # 페이지 컴포넌트들 : 여러 컴포넌트들을 조합하여 만든 페이지 컴포넌트
+    │   └───login                           # 로그인 페이지 컴포넌트
+    │           index.tsx                       # 로그인 페이지 컴포넌트 정의
+    │           Login.layout.tsx                # style-component 적용한 페이지 레이아웃 
+    ├───stores                          # zustand 상태 관리 코드들
+    │       useLoginStore.ts                # 로그인 상태관리 코드
+    └───styles                          # 전역 CSS, Theme 
+            DefaultTheme.ts                 # 기본 테마 설정
+            globals.CSS                     # 공통 적용 css
+```
+
 
 ## Getting Started
 
-First, run the development server:
+### 실행 방법
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 스토리북 실행 방법
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run storybook
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[nextjs]: /images/stack/nextjs.svg
+[ts]: /images/stack/typescript.svg
+[react]: /images/stack/react.svg
+[node]: /images/stack/node.svg
+[eslint]: /images/stack/eslint.svg
+[prettier]: /images/stack/prettier-color.svg
+[sb]: /images/stack/storybook-color.svg
+[sc]: /images/stack/styledcomponents-color.svg
