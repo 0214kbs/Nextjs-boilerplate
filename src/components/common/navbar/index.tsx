@@ -7,7 +7,7 @@ import useLoginStore from "@/stores/useLoginStore";
 const NavbarComponent = () => {
 
   // zustand 
-  const { isLogin, logout } = useLoginStore();
+  const { isLogin, logout, userEmail } = useLoginStore();
 
   const changeLoginState = () => {
     logout();
@@ -31,9 +31,15 @@ const NavbarComponent = () => {
           ) : (
             <StyledNavLink href="/login">로그인</StyledNavLink>
           )}
-          <StyledNavLink href="/signup" onClick={onCreateAccount}>
-            회원가입
-          </StyledNavLink>
+          {isLogin ? (
+            <StyledNavLink href="/mypage">
+              {userEmail}
+            </StyledNavLink>
+          ) : (
+            <StyledNavLink href="/signup" onClick={onCreateAccount}>
+              회원가입
+            </StyledNavLink>
+          )}
         </NavLinks>
       </StyledNav>
     </header>
