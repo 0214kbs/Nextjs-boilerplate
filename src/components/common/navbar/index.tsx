@@ -10,7 +10,7 @@ const NavbarComponent = () => {
   const { isLogin, logout } = useLoginStore();
 
   const changeLoginState = () => {
-    logout;
+    logout();
   };
 
   const onCreateAccount = () => {

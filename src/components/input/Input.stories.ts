@@ -16,12 +16,9 @@ const meta = {
       defaultValue: { summary: "Basic Input" },
       description: "입력 필드의 이름(식별자)",
     },
-    use: {
-      options: ["basic", "error", "warn", "success", "disable"],
-      defaultValue: { summary: "basic" },
-      control: { type: "radio" },
-      description: "각 상황에 따라 표시할 유형",
-    },
+  },
+  args: {
+    placeholder: "Input box",
   },
 } satisfies Meta<typeof Input>;
 
@@ -30,34 +27,11 @@ type Story = StoryObj<typeof meta>;
 
 export const BasicInput: Story = {
   args: {
-    placeholder: "Input box",
   },
 };
 
-export const WarnInput: Story = {
+export const ChangeColorInput: Story = {
   args: {
-    placeholder: "Input box",
-    use: "warn",
-  },
-};
-
-export const ErrorInput: Story = {
-  args: {
-    placeholder: "Input box",
-    use: "error",
-  },
-};
-
-export const SuccessInput: Story = {
-  args: {
-    placeholder: "Input box",
-    use: "success",
-  },
-};
-
-export const DisableInput: Story = {
-  args: {
-    placeholder: "Input box",
-    use: "disable",
+    color: "#BB2649"
   },
 };
