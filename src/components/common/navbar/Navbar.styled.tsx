@@ -9,8 +9,7 @@ const StyledNav = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
-  background: #abc8ff;
-  /* background: #92a8d1; */
+  background: ${props => props.theme.colors.main};
   text-align: right;
   padding: 10px 0px;
 `;
