@@ -1,15 +1,15 @@
 "use client";
 import React from "react";
 import useLoginStore from "@/stores/useLoginStore";
-
+import { StyledTable, StyledMyPage } from "./Mypage.layout";
 const Mypage = () => {
   const { user } = useLoginStore();
 
   return (
     <>
-      <div>
+      <StyledMyPage>
         <h2> MyPage </h2>
-        <table>
+        <StyledTable>
           <thead>
             <tr>
               <th>index</th>
@@ -42,8 +42,8 @@ const Mypage = () => {
               <td>{user.phone}</td>
             </tr>
           </tbody>
-        </table>
-      </div>
+        </StyledTable>
+      </StyledMyPage>
     </>
   );
 };
