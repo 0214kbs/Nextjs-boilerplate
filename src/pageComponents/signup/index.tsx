@@ -1,10 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import { SignupLayout, StyledButtonList } from "./Signup.layout";
+import { SignupLayout, StyledButtonList, StyledGenderLabel } from "./Signup.layout";
 import Button from "@/components/button";
 import Input from "@/components/input";
-import useInputHook from "@/hooks/useInputHook";
 import useLoginStore from "@/stores/useLoginStore";
 
 const Signup = () => {
@@ -39,6 +38,7 @@ const Signup = () => {
       console.log("check password");
     }
   };
+
   return (
     <>
       <SignupLayout onSubmit={onSubmit}>
@@ -58,7 +58,12 @@ const Signup = () => {
         <Input type="text" name="email" placeholder="이메일" />
         <Input type="text" name="name" placeholder="이름" />
         <Input type="date" name="birth" placeholder="생년월일" />
-        <Input type="text" name="gender" placeholder="성별" />
+        <StyledGenderLabel>
+          <input type="radio" name="gender" value="남" /> 남
+        </StyledGenderLabel>
+        <StyledGenderLabel>
+          <input type="radio" name="gender" value="여" /> 여
+        </StyledGenderLabel>
         <Input type="text" name="phone" placeholder="휴대폰 번호" />
 
         <StyledButtonList>

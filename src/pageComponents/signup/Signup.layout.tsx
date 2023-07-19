@@ -10,7 +10,11 @@ const SignupLayout = styled.form<any>`
 `;
 
 const StyledButtonList = styled.div`
-  display:flex;
+  display: flex;
   justify-content: space-between;
-`
-export { SignupLayout, StyledButtonList };
+`;
+
+const StyledGenderLabel = styled.label`
+  margin: 0px 10px;
+`;
+export { SignupLayout, StyledButtonList, StyledGenderLabel };
