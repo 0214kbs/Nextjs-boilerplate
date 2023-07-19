@@ -5,11 +5,12 @@ import Image from "next/image";
 import useLoginStore from "@/stores/useLoginStore";
 
 const NavbarComponent = () => {
-  const isLogin = useLoginStore((state: any) => state.isLogin);
-  const loginState = useLoginStore((state: any) => state.logout);
+
+  // zustand 
+  const { isLogin, logout } = useLoginStore();
 
   const changeLoginState = () => {
-    loginState();
+    logout;
   };
 
   const onCreateAccount = () => {
