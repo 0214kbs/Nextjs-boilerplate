@@ -6,4 +6,5 @@ export interface InputStyles {
   type?: string;
   color?: string;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: (e: any) => any;
 }

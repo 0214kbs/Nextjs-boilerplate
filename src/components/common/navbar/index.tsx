@@ -5,10 +5,8 @@ import Image from "next/image";
 import useLoginStore from "@/stores/useLoginStore";
 
 const NavbarComponent = () => {
-
-  // zustand 
-  const { isLogin, logout, userEmail } = useLoginStore();
-
+  // zustand
+  const { isLogin, logout, user, userEmail } = useLoginStore();
   const changeLoginState = () => {
     logout();
   };
@@ -32,9 +30,7 @@ const NavbarComponent = () => {
             <StyledNavLink href="/login">로그인</StyledNavLink>
           )}
           {isLogin ? (
-            <StyledNavLink href="/mypage">
-              {userEmail}
-            </StyledNavLink>
+            <StyledNavLink href="/mypage">{user.email || userEmail}</StyledNavLink>
           ) : (
             <StyledNavLink href="/signup" onClick={onCreateAccount}>
               회원가입
