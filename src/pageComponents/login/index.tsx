@@ -4,22 +4,18 @@ import { useRouter } from "next/navigation";
 import { LoginLayout } from "./Login.layout";
 import Button from "@/components/button";
 import Input from "@/components/input";
-import useLoginStore from "@/stores/useLoginStore";
 import { useInputHook } from "@/hooks/useInputHook";
+import useLoginStore from "@/stores/useLoginStore";
 
 const Login = () => {
   const router = useRouter();
-  const loginState = useLoginStore((state: any) => state.login);
 
   const { email, password, handleEmailInput, handlePasswordInput } = useInputHook();
-
-  const changeLoginState = () => {
-    loginState();
-  };
+  const { login } = useLoginStore();
 
   const onSubmit = async (e: any) => {
     e.preventDefault();
-    changeLoginState();
+    login(email);
     router.push("/");
     console.log("submit email : " + email + " / password: " + password);
   };

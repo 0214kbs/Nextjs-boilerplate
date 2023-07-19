@@ -1,5 +1,7 @@
 export interface LoginStateType {
     isLogin: boolean;
-    login: () => void;
+    userEmail: string | null;
+    login: (email: string) => void;
+    // login: () => void;
     logout: () => void;
 }
