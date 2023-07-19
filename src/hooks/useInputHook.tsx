@@ -1,21 +1,13 @@
-import React, { useState, useEffect } from "react";
+import { useState, useCallback } from "react";
 
-export const useInputHook = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+export function useInputHook(initialValue: any) {
+  const [inputValue, setInputValue] = useState(initialValue);
 
-  useEffect(() => {
-    console.log("email : " + email);
-    console.log("password : " + password);
-  });
-
-  const handleEmailInput = (e: any) => {
-    setEmail(e.target.value);
+  const handleChange = (e: any) => {
+    setInputValue(e.target.value);
   };
 
-  const handlePasswordInput = (e: any) => {
-    setPassword(e.target.value);
-  };
+  return [inputValue, handleChange];
+}
 
-  return { email, password, handleEmailInput, handlePasswordInput };
-};
+export default useInputHook;
