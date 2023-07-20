@@ -66,14 +66,9 @@ const Signup = () => {
         </StyledGenderLabel>
         <Input type="text" name="phone" placeholder="휴대폰 번호" />
 
-        <StyledButtonList>
-          <div style={{ margin: "10px" }}>
-            <Button label="취소" type="submit" bgcolor="gray"></Button>
-          </div>
-          <div style={{ margin: "10px" }}>
-            <Button label="완료" type="submit" bgcolor="#BB2649"></Button>
-          </div>
-        </StyledButtonList>
+        <div style={{ width: "100%", marginTop: "10px" }}>
+          <Button label="완료" type="submit" bgcolor="#ffccef" ></Button>
+        </div>
       </SignupLayout>
     </>
   );

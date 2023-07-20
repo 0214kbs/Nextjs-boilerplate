@@ -21,12 +21,17 @@
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true,
-      "tsx": true
+      "tsx": true,
+      "ts": true
     },
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": ["react", "react-hooks", "prettier"],
+  "plugins": [
+    "react",
+    "react-hooks",
+    "prettier"
+  ],
   "rules": {
     "react/react-in-jsx-scope": 0,
     "react/prefer-stateless-function": 0,
