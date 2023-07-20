@@ -7,7 +7,7 @@ import Input from "@/components/input";
 import useLoginStore from "@/stores/useLoginStore";
 
 const Signup = () => {
-  const { setUser } = useLoginStore();
+  const { setUser, changeResponsedSurveys, changeCreatedSurveys, changePoints, changePrizes } = useLoginStore();
   const [isPasswordConfirm, setIsPasswordConfirm] = useState(true);
 
   const router = useRouter();
@@ -32,6 +32,13 @@ const Signup = () => {
 
     if (inputPassword === passwordConfirm) {
       setUser(values);
+
+      // 임의 작동
+      changeResponsedSurveys(100);
+      changeCreatedSurveys(5);
+      changePoints(1000);
+      changePrizes(10);
+
       console.log("success");
       router.push("/");
     } else {
@@ -67,7 +74,7 @@ const Signup = () => {
         <Input type="text" name="phone" placeholder="휴대폰 번호" />
 
         <div style={{ width: "100%", marginTop: "10px" }}>
-          <Button label="완료" type="submit" bgcolor="#ffccef" ></Button>
+          <Button label="완료" type="submit"></Button>
         </div>
       </SignupLayout>
     </>

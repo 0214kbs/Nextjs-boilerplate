@@ -6,6 +6,12 @@ export interface User {
   birth?: string;
   gender?: string;
   phone?: string;
+
+  // survey info
+  responsedSurveys?: number;
+  createdSurveys?: number;
+  points?: number;
+  prizes?: number;
 }
 
 export interface LoginStateType {
@@ -19,4 +25,9 @@ export interface LoginStateType {
   //register
   setUser: (userInfo: User) => void;
   logout: () => void;
+
+  changeResponsedSurveys: (value: number) => void;
+  changeCreatedSurveys: (value: number) => void;
+  changePoints: (value: number) => void;
+  changePrizes: (value: number) => void;
 }
