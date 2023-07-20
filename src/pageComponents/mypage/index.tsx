@@ -6,16 +6,18 @@ import { MypageLayout, ContentLayout, ProfileLayout, OthersLayout } from "./Mypa
 import Miniprofile from "@/components/miniprofile";
 
 const Mypage = () => {
-  // const { user } = useLoginStore();
 
+  const [currentCat, setCurrentCat] = useState(0);
   return (
     <MypageLayout>
-      <Opensidebar></Opensidebar>
+      <Opensidebar currentCat={currentCat} setCurrentCat={setCurrentCat}></Opensidebar>
       <ContentLayout>
-        <ProfileLayout><Miniprofile /></ProfileLayout>
+        {currentCat !== 0 && (
+          <ProfileLayout><Miniprofile /></ProfileLayout>
+        )}
         <OthersLayout>test others</OthersLayout>
       </ContentLayout>
-    </MypageLayout>
+    </MypageLayout >
   )
 };
 

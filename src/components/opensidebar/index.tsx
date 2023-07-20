@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { SidebarLayout, SidebarListLayout, StyledCategory } from "./Opensidebar.styled";
 
-const Opensidebar = () => {
+const Opensidebar = ({ currentCat, setCurrentCat }: any) => {
 
     const catLists = [
         { id: 0, name: "회원 정보" },
@@ -12,7 +12,7 @@ const Opensidebar = () => {
         { id: 4, name: "포인트 사용" },
     ]
 
-    const [currentCat, setCurrentCat] = useState(0);
+    // const [currentCat, setCurrentCat] = useState(0);
     const handleClickCatagory = (cat: any) => {
         setCurrentCat(cat);
     }
