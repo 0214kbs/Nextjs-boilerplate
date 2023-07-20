@@ -4,6 +4,13 @@ const MypageLayout = styled.div`
   display: flex;
   min-height: 94vh;
 `;
+
+const EditPageLayout = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+`;
 const ContentLayout = styled.div`
   display: flex;
   flex-direction: column;
@@ -22,4 +29,4 @@ const OthersLayout = styled.div`
   height: 100%;
   background-color: white;
 `;
-export { MypageLayout, ContentLayout, ProfileLayout, OthersLayout };
+export { MypageLayout, EditPageLayout, ContentLayout, ProfileLayout, OthersLayout };
