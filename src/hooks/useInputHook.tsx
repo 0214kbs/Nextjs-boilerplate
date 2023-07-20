@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState } from "react";
 
 export function useInputHook(initialValue: any) {
   const [inputValue, setInputValue] = useState(initialValue);

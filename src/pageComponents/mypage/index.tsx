@@ -1,51 +1,22 @@
 "use client";
-import React from "react";
-import useLoginStore from "@/stores/useLoginStore";
-import { StyledTable, StyledMyPage } from "./Mypage.layout";
+import React, { useState } from "react";
+import Opensidebar from "@/components/opensidebar"
+// import useLoginStore from "@/stores/useLoginStore";
+import { MypageLayout, ContentLayout, ProfileLayout, OthersLayout } from "./Mypage.layout";
+import Miniprofile from "@/components/miniprofile";
+
 const Mypage = () => {
-  const { user } = useLoginStore();
+  // const { user } = useLoginStore();
 
   return (
-    <>
-      <StyledMyPage>
-        <h2> MyPage </h2>
-        <StyledTable>
-          <thead>
-            <tr>
-              <th>index</th>
-              <th>value</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>ID</td>
-              <td>{user.id}</td>
-            </tr>
-            <tr>
-              <td>Email</td>
-              <td>{user.email}</td>
-            </tr>
-            <tr>
-              <td>Name</td>
-              <td>{user.name}</td>
-            </tr>
-            <tr>
-              <td>Birth</td>
-              <td>{user.birth}</td>
-            </tr>
-            <tr>
-              <td>Gender</td>
-              <td>{user.gender}</td>
-            </tr>
-            <tr>
-              <td>Phone</td>
-              <td>{user.phone}</td>
-            </tr>
-          </tbody>
-        </StyledTable>
-      </StyledMyPage>
-    </>
-  );
+    <MypageLayout>
+      <Opensidebar></Opensidebar>
+      <ContentLayout>
+        <ProfileLayout><Miniprofile /></ProfileLayout>
+        <OthersLayout>test others</OthersLayout>
+      </ContentLayout>
+    </MypageLayout>
+  )
 };
 
 export default Mypage;
