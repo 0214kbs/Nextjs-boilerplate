@@ -9,9 +9,10 @@ const StyledButton = styled.button.attrs<ButtonStyles>((props) => ({}))`
 
     return css`
       cursor: pointer;
+      font-size: 16px;
       border: 0px;
-      border-radius: 5px;
       line-height: 1;
+      height: 45px;
       padding: 10px;
       width:100%;
       background-color: ${bgcolor};

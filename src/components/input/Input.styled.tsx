@@ -10,7 +10,7 @@ ${(props) => {
     const bcolor = props.color || gray;
     return css`
       width:100%;
-      border-radius: 5px;
+      height: 45px;
       padding: 5px;
       margin:5px 0px;
       background-color: white;

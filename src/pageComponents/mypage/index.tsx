@@ -4,6 +4,7 @@ import Opensidebar from "@/components/opensidebar"
 // import useLoginStore from "@/stores/useLoginStore";
 import { MypageLayout, ContentLayout, ProfileLayout, OthersLayout } from "./Mypage.layout";
 import Miniprofile from "@/components/miniprofile";
+import Editinfo from "@/components/editinfo";
 
 const Mypage = () => {
 
@@ -15,7 +16,9 @@ const Mypage = () => {
         {currentCat !== 0 && (
           <ProfileLayout><Miniprofile /></ProfileLayout>
         )}
-        <OthersLayout>test others</OthersLayout>
+        {currentCat === 0 && (
+          <OthersLayout><Editinfo /></OthersLayout>
+        )}
       </ContentLayout>
     </MypageLayout >
   )

@@ -1,11 +1,9 @@
 "use client";
 import styled from "styled-components";
 
-const SignupLayout = styled.form<any>`
-  margin: 30px auto;
+const StyledEditInfoForm = styled.form<any>`
   width: 420px;
-  padding: 25px;
-  border: 2px solid #e7e7e7;
+  padding: 20px;
   border-radius: 5px;
 `;
 
@@ -15,6 +13,6 @@ const StyledButtonList = styled.div`
 `;
 
 const StyledGenderLabel = styled.label`
-  margin: 0px 10px;
+  margin: 0px 10px 0px 0px;
 `;
-export { SignupLayout, StyledButtonList, StyledGenderLabel };
+export { StyledEditInfoForm, StyledButtonList, StyledGenderLabel };
