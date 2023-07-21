@@ -8,12 +8,13 @@ const StyledCard = styled.div`
   flex-direction: column;
   justify-content: space-between;
   border: 1px solid black;
-`;
+  position: relative;
+  `;
 const StyledCardHeader = styled.div`
   margin: 1px 3px;
   display: flex;
   justify-content: space-between;
-`;
+  `;
 const StyledRemainTime = styled.div<{ bgcolor?: string }>`
   width: 35%;
   color: white;
@@ -22,15 +23,22 @@ const StyledRemainTime = styled.div<{ bgcolor?: string }>`
   padding: 0px 10px;
   border-radius: 30px;
   background-color: ${props => props.bgcolor || "#44c944"};
+  /* position: fixed; */
 `;
 
 const StyledProbability = styled.div`
-width: 28%;
+width: 40%;
 color: white;
 font-weight: bold;
 padding: 0px 10px;
-border-radius: 30px;
+
+text-align: center;
 background-color: #c94444;
+
+position: absolute;
+top: 5px;
+right: -20px;
+transform: rotate(45deg);
 `;
 
 const StyledImg = styled.div`
