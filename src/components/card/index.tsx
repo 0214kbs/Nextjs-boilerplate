@@ -7,7 +7,7 @@ const CardComponent = (props: CardType) => {
   return (
     <StyledCard>
       <StyledCardHeader>
-        <StyledRemainTime>{props.remainTime}</StyledRemainTime>
+        <StyledRemainTime bgcolor={props.bgcolor}>{props.remainTime}</StyledRemainTime>
         <StyledProbability>{props.probability}</StyledProbability>
       </StyledCardHeader>
       <StyledImg>

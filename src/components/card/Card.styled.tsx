@@ -1,5 +1,5 @@
 "use client";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const StyledCard = styled.div`
   width: 100%;
@@ -14,36 +14,38 @@ const StyledCardHeader = styled.div`
   display: flex;
   justify-content: space-between;
 `;
-const StyledRemainTime = styled.div`
+const StyledRemainTime = styled.div<{ bgcolor?: string }>`
   width: 35%;
   color: white;
   font-weight: bold;
+  text-align: center;
   padding: 0px 10px;
   border-radius: 30px;
-  background-color: #44c944;
+  background-color: ${props => props.bgcolor || "#44c944"};
 `;
+
 const StyledProbability = styled.div`
-  width: 28%;
-  color: white;
-  font-weight: bold;
-  padding: 0px 10px;
-  border-radius: 30px;
-  background-color: #c94444;
+width: 28%;
+color: white;
+font-weight: bold;
+padding: 0px 10px;
+border-radius: 30px;
+background-color: #c94444;
 `;
 
 const StyledImg = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+display: flex;
+justify-content: center;
+align-items: center;
 `;
 
 const StyledTitle = styled.div`
-  width: 100%;
-  text-align: center;
-  color: black;
-  font-weight: bold;
-  font-size: 20px;
-  background-color: #e4e4e4;
+width: 100%;
+text-align: center;
+color: black;
+font-weight: bold;
+font-size: 20px;
+background-color: #e4e4e4;
 `;
 
 export { StyledCard, StyledRemainTime, StyledTitle, StyledImg, StyledProbability, StyledCardHeader };
