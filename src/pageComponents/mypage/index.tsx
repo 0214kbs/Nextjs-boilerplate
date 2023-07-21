@@ -1,10 +1,10 @@
 "use client";
 import React, { useState } from "react";
-import Opensidebar from "@/components/opensidebar";
+import Opensidebar from "./components/opensidebar";
 import { MypageLayout, EditPageLayout, ContentLayout, ProfileLayout, OthersLayout } from "./Mypage.layout";
-import Miniprofile from "@/components/miniprofile";
-import Editinfo from "@/components/editinfo";
-import ResponsesList from "@/components/responsedList";
+import Miniprofile from "./components/miniprofile";
+import Editinfo from "./components/editinfo";
+import ResponsesList from "./components/responsedList";
 
 const Mypage = () => {
   const [currentCat, setCurrentCat] = useState(0);
