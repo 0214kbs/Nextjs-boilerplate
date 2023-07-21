@@ -4,6 +4,7 @@ import { CardType } from "./Card.type";
 import { StyledCard, StyledCardHeader, StyledRemainTime, StyledTitle, StyledImg, StyledProbability } from "./Card.styled";
 
 const CardComponent = (props: CardType) => {
+
   return (
     <StyledCard>
       <StyledCardHeader>

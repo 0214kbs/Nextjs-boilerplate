@@ -5,6 +5,7 @@ import { MypageLayout, EditPageLayout, ContentLayout, ProfileLayout, OthersLayou
 import Miniprofile from "./components/miniprofile";
 import Editinfo from "./components/editinfo";
 import ResponsesList from "./components/responsedList";
+import CreatedList from "./components/createdList";
 
 const Mypage = () => {
   const [currentCat, setCurrentCat] = useState(0);
@@ -24,6 +25,8 @@ const Mypage = () => {
     switch (currentCat) {
       case 1:
         return <ResponsesList />;
+      case 2:
+        return <CreatedList />;
     }
   };
   return (

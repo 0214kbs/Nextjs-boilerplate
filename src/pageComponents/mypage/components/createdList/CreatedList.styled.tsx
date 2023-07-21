@@ -12,4 +12,4 @@ const StyledTitle = styled.h2`
     margin: 20px;
 `
 
-export { StyledList, StyledTitle }
+export { StyledList, StyledTitle } 
