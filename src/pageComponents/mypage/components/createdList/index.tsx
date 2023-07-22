@@ -1,31 +1,33 @@
 "use client";
 import React from "react";
 import Card from "@/components/card";
-import { StyledList, StyledTitle } from "./CreatedList.styled"
-const ResponsesList = () => {
-    return (
-        <>
-            <StyledTitle> 만든 설문 </StyledTitle>
-            <StyledList>
+import { StyledList, StyledTitle, StyledCard } from "./CreatedList.styled";
+import useSurveyStore from "@/stores/useSurveyStore";
+import useLoginStore from "@/stores/useLoginStore";
 
-                <div style={{ width: "200px", height: "230px", cursor: "pointer" }}>
-                    <Card remainTime="00:00" title="설문지 제목" probability="20%"></Card>
-                </div>
-                <div style={{ width: "200px", height: "230px", cursor: "pointer" }}>
-                    <Card remainTime="00:00" title="설문지 제목" probability="20%"></Card>
-                </div>
-                <div style={{ width: "200px", height: "230px", cursor: "pointer" }}>
-                    <Card remainTime="00:00" title="설문지 제목" probability="20%"></Card>
-                </div>
-                <div style={{ width: "200px", height: "230px", cursor: "pointer" }}>
-                    <Card remainTime="마감" title="설문지 제목" probability="20%" bgcolor="gray"></Card>
-                </div>
-                <div style={{ width: "200px", height: "230px", cursor: "pointer" }}>
-                    <Card remainTime="마감" title="설문지 제목" probability="20%" bgcolor="gray"></Card>
-                </div>
-            </StyledList>
-        </>
-    );
+const CreatedList = () => {
+  const { surveys } = useSurveyStore();
+  const { user } = useLoginStore();
+
+  return (
+    <>
+      <StyledTitle> 만든 설문 </StyledTitle>
+      <StyledList>
+        {surveys.map((survey) =>
+          survey.userId === user.id ? (
+            <StyledCard>
+              <Card
+                remainTime={survey.remainTime === "00:00" ? "마감" : survey.remainTime}
+                title={survey.title}
+                bgcolor={survey.remainTime === "00:00" ? "gray" : undefined}
+                id={survey.userId}
+              />
+            </StyledCard>
+          ) : null,
+        )}
+      </StyledList>
+    </>
+  );
 };
 
-export default ResponsesList;
+export default CreatedList;

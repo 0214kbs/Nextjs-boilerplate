@@ -1,37 +1,34 @@
 "use client";
 import React from "react";
 import Card from "@/components/card";
-import { StyledList, StyledTitle } from "./responsedSurveysList.styled"
-const ResponsesList = () => {
+import { StyledList, StyledTitle, StyledCard } from "./responsedSurveysList.styled";
+import useSurveyStore from "@/stores/useSurveyStore";
+import useLoginStore from "@/stores/useLoginStore";
+
+const ResponsedList = () => {
+  const { surveys } = useSurveyStore();
+  const { user } = useLoginStore();
+
   return (
     <>
       <StyledTitle> 응답한 설문 </StyledTitle>
       <StyledList>
-
-        <div style={{ width: "200px", height: "230px", cursor: "pointer" }}>
-          <Card remainTime="00:00" title="설문지 제목" probability="20%"></Card>
-        </div>
-        <div style={{ width: "200px", height: "230px", cursor: "pointer" }}>
-          <Card remainTime="00:00" title="설문지 제목" probability="20%"></Card>
-        </div>
-        <div style={{ width: "200px", height: "230px", cursor: "pointer" }}>
-          <Card remainTime="00:00" title="설문지 제목" probability="20%"></Card>
-        </div>
-        <div style={{ width: "200px", height: "230px", cursor: "pointer" }}>
-          <Card remainTime="00:00" title="설문지 제목" probability="20%"></Card>
-        </div>
-        <div style={{ width: "200px", height: "230px", cursor: "pointer" }}>
-          <Card remainTime="00:00" title="설문지 제목" probability="20%"></Card>
-        </div>
-        <div style={{ width: "200px", height: "230px", cursor: "pointer" }}>
-          <Card remainTime="마감" title="설문지 제목" probability="20%" bgcolor="gray"></Card>
-        </div>
-        <div style={{ width: "200px", height: "230px", cursor: "pointer" }}>
-          <Card remainTime="마감" title="설문지 제목" probability="20%" bgcolor="gray"></Card>
-        </div>
+        {surveys.map((survey) =>
+          survey.userId !== user.id ? (
+            <StyledCard>
+              <Card
+                remainTime={survey.remainTime === "00:00" ? "마감" : survey.remainTime}
+                title={survey.title}
+                probability={survey.probability}
+                bgcolor={survey.remainTime === "00:00" ? "gray" : undefined}
+                id={survey.userId}
+              />
+            </StyledCard>
+          ) : null,
+        )}
       </StyledList>
     </>
   );
 };
 
-export default ResponsesList;
+export default ResponsedList;
