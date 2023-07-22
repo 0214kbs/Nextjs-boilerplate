@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { LoginStateType, User } from "./loginStore.type";
+import { LoginStateType, User } from "./types/loginStore.type";
 
 const useLoginStore = create<LoginStateType>((set) => ({
   isLogin: false,
