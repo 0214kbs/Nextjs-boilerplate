@@ -1,6 +1,6 @@
 export interface SurveyType {
   surveys: {
-    remainTime: string;
+    deadLine: string;
     title: string;
     probability: string;
     userId: string;

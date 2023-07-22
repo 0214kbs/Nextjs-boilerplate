@@ -1,5 +1,5 @@
 export interface CardType {
-  remainTime: string;
+  deadLine: string;
   probability?: string;
   title: string;
   bgcolor?: string;
