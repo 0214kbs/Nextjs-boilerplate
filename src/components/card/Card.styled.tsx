@@ -1,5 +1,6 @@
 "use client";
 import styled, { css } from "styled-components";
+import { CardType } from "./Card.type";
 
 const StyledCard = styled.div`
   width: 100%;
@@ -15,15 +16,14 @@ const StyledCardHeader = styled.div`
   display: flex;
   justify-content: space-between;
 `;
-const StyledRemainTime = styled.div<{ bgcolor?: string }>`
+const StyledRemainTime = styled.div<CardType>`
   width: 50%;
   color: white;
   font-weight: bold;
   text-align: center;
   padding: 0px 10px;
   border-radius: 30px;
-  background-color: ${(props) => props.bgcolor || "#44c944"};
-  /* position: fixed; */
+  background-color: ${(props) => (props.remainTime === "" ? "#707070" : "#44c955")};
 `;
 
 const StyledProbability = styled.div`

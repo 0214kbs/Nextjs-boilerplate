@@ -4,5 +4,6 @@ export interface SurveyType {
     title: string;
     probability: string;
     userId: string;
+    remainTime: string;
   }[];
 }

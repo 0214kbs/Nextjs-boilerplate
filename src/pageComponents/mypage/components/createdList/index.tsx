@@ -5,6 +5,7 @@ import { StyledList, StyledTitle, StyledCard } from "./CreatedList.styled";
 import useSurveyStore from "@/stores/useSurveyStore";
 import useLoginStore from "@/stores/useLoginStore";
 import moment from "moment";
+import useTimerHook from "@/hooks/useTimerHook";
 
 const CreatedList = () => {
   const { surveys } = useSurveyStore();
@@ -19,15 +20,39 @@ const CreatedList = () => {
         const bDeadLine = moment(b.deadLine, "YYYY-MM-DD-HH-mm");
         return aDeadLine.isBefore(bDeadLine) ? 1 : -1;
       });
-      setSortedSurveys(sorted);
+
+      setSortedSurveys((prev) => {
+        const data = sorted.map((prev: any) => {
+          return { ...prev, remainTime: useTimerHook(prev.deadLine) };
+        });
+        return data;
+      });
     } else {
-      setSortedSurveys(surveys);
+      setSortedSurveys((prev) => {
+        const data = surveys.map((prev: any) => {
+          return { ...prev, remainTime: useTimerHook(prev.deadLine) };
+        });
+        return data;
+      });
     }
   };
 
   useEffect(() => {
     sortSurveys(sortType);
   }, [sortType, surveys]);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setSortedSurveys((prev) => {
+        const data = prev.map((prev: any) => {
+          return { ...prev, remainTime: useTimerHook(prev.deadLine) };
+        });
+        return data;
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <>
@@ -40,7 +65,7 @@ const CreatedList = () => {
         {sortedSurveys.map((survey, index) =>
           survey.userId === user.id ? (
             <StyledCard key={index}>
-              <Card deadLine={survey.deadLine} title={survey.title} id={survey.userId} />
+              <Card remainTime={survey.remainTime} title={survey.title} id={survey.userId} />
             </StyledCard>
           ) : null,
         )}
