@@ -18,22 +18,22 @@ const CreatedList = () => {
       const sorted = [...surveys].sort((a, b) => {
         const aDeadLine = moment(a.deadLine, "YYYY-MM-DD-HH-mm");
         const bDeadLine = moment(b.deadLine, "YYYY-MM-DD-HH-mm");
-        return aDeadLine.isBefore(bDeadLine) ? 1 : -1;
+
+        const aRemainTime = aDeadLine.diff(moment(), "seconds");
+        const bRemainTime = bDeadLine.diff(moment(), "seconds");
+
+        if (aRemainTime < 0 && bRemainTime >= 0) {
+          return 1;
+        } else if (bRemainTime < 0 && aRemainTime >= 0) {
+          return -1;
+        } else {
+          return aDeadLine.isAfter(bDeadLine) ? 1 : -1;
+        }
       });
 
-      setSortedSurveys((prev) => {
-        const data = sorted.map((prev: any) => {
-          return { ...prev, remainTime: useTimerHook(prev.deadLine) };
-        });
-        return data;
-      });
+      setSortedSurveys(sorted);
     } else {
-      setSortedSurveys((prev) => {
-        const data = surveys.map((prev: any) => {
-          return { ...prev, remainTime: useTimerHook(prev.deadLine) };
-        });
-        return data;
-      });
+      setSortedSurveys(surveys);
     }
   };
 
