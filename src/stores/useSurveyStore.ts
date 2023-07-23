@@ -42,7 +42,7 @@ const useSurveyStore = create<SurveyType>((set) => ({
     { remainTime: "", deadLine: "2023-07-24-02-08", title: "설문지 제목10", probability: "20%", userId: "0214kbs" },
     { remainTime: "", deadLine: "2023-07-23-10-30", title: "설문지 제목11", probability: "20%", userId: "0214kbs" },
     { remainTime: "", deadLine: "2023-07-24-09-20", title: "설문지 제목12", probability: "20%", userId: "def" },
-    { remainTime: "", deadLine: "2023-07-24-11-28", title: "설문지 제목13", probability: "20%", userId: "def" },
+    { remainTime: "", deadLine: "2023-07-23-23-59", title: "설문지 제목13", probability: "20%", userId: "def" },
     { remainTime: "", deadLine: "2023-07-24-12-21", title: "설문지 제목14", probability: "20%", userId: "def" },
   ],
 }));

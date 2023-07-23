@@ -5,6 +5,7 @@ import { StyledList, StyledTitle, StyledCard } from "./responsedSurveysList.styl
 import useSurveyStore from "@/stores/useSurveyStore";
 import useLoginStore from "@/stores/useLoginStore";
 import moment from "moment";
+import useTimerHook from "@/hooks/useTimerHook";
 
 const ResponsedList = () => {
   const { surveys } = useSurveyStore();
@@ -18,17 +19,53 @@ const ResponsedList = () => {
       const sorted = [...surveys].sort((a, b) => {
         const aDeadLine = moment(a.deadLine, "YYYY-MM-DD-HH-mm");
         const bDeadLine = moment(b.deadLine, "YYYY-MM-DD-HH-mm");
-        return aDeadLine.isBefore(bDeadLine) ? 1 : -1;
+
+        const aRemainTime = aDeadLine.diff(moment(), "seconds");
+        const bRemainTime = bDeadLine.diff(moment(), "seconds");
+
+        if (aRemainTime < 0 && bRemainTime >= 0) {
+          return 1;
+        } else if (bRemainTime < 0 && aRemainTime >= 0) {
+          return -1;
+        } else {
+          return aDeadLine.isAfter(bDeadLine) ? 1 : -1;
+        }
       });
-      setSortedSurveys(sorted);
+
+      // setSortedSurveys(sorted);
+      setSortedSurveys((prev) => {
+        const data = sorted.map((prev: any) => {
+          return { ...prev, remainTime: useTimerHook(prev.deadLine) };
+        });
+        return data;
+      });
     } else {
-      setSortedSurveys(surveys);
+      // setSortedSurveys(surveys);
+      setSortedSurveys((prev) => {
+        const data = surveys.map((prev: any) => {
+          return { ...prev, remainTime: useTimerHook(prev.deadLine) };
+        });
+        return data;
+      });
     }
   };
 
   useEffect(() => {
     sortSurveys(sortType);
   }, [sortType, surveys]);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setSortedSurveys((prev) => {
+        const data = prev.map((prev: any) => {
+          return { ...prev, remainTime: useTimerHook(prev.deadLine) };
+        });
+        return data;
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <>
@@ -40,7 +77,9 @@ const ResponsedList = () => {
       <StyledList>
         {sortedSurveys.map((survey, index) =>
           survey.userId !== user.id ? (
-            <StyledCard key={index}>{/* <Card deadLine={survey.deadLine} title={survey.title} id={survey.userId} /> */}</StyledCard>
+            <StyledCard key={index}>
+              <Card remainTime={survey.remainTime} title={survey.title} id={survey.userId} probability={survey.probability} />
+            </StyledCard>
           ) : null,
         )}
       </StyledList>
