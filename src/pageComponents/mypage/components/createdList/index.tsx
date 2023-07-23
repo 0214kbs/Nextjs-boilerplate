@@ -31,9 +31,21 @@ const CreatedList = () => {
         }
       });
 
-      setSortedSurveys(sorted);
+      // setSortedSurveys(sorted);
+      setSortedSurveys((prev) => {
+        const data = sorted.map((prev: any) => {
+          return { ...prev, remainTime: useTimerHook(prev.deadLine) };
+        });
+        return data;
+      });
     } else {
-      setSortedSurveys(surveys);
+      // setSortedSurveys(surveys);
+      setSortedSurveys((prev) => {
+        const data = surveys.map((prev: any) => {
+          return { ...prev, remainTime: useTimerHook(prev.deadLine) };
+        });
+        return data;
+      });
     }
   };
 
