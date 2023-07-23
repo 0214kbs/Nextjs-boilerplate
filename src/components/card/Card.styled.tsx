@@ -5,55 +5,75 @@ import { CardType } from "./Card.type";
 const StyledCard = styled.div`
   width: 100%;
   height: 100%;
+
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  border: 1px solid black;
-  position: relative;
-`;
-const StyledCardHeader = styled.div`
-  margin: 1px 3px;
-  display: flex;
-  justify-content: space-between;
-`;
-const StyledRemainTime = styled.div<CardType>`
-  width: 50%;
-  color: white;
-  font-weight: bold;
-  text-align: center;
-  padding: 0px 10px;
-  border-radius: 30px;
-  background-color: ${(props) => (props.remainTime === "" ? "#707070" : "#44c955")};
-`;
-
-const StyledProbability = styled.div`
-  width: 40%;
-  color: white;
-  font-weight: bold;
-  padding: 0px 10px;
-
-  text-align: center;
-  background-color: #c94444;
-
-  position: absolute;
-  top: 5px;
-  right: -20px;
-  transform: rotate(45deg);
-`;
-
-const StyledImg = styled.div`
-  display: flex;
   justify-content: center;
   align-items: center;
+  gap: 20px;
+
+  border-radius: 16px;
+  border: 1px solid #e4e7ec;
+  background: #fff;
+
+  padding: 40px;
+`;
+
+const StyledCardHeader = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
 `;
 
 const StyledTitle = styled.div`
   width: 100%;
+  color: #000;
   text-align: center;
-  color: black;
-  font-weight: bold;
+  font-family: SUIT;
   font-size: 20px;
-  background-color: #e4e4e4;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 `;
 
-export { StyledCard, StyledRemainTime, StyledTitle, StyledImg, StyledProbability, StyledCardHeader };
+const StyledWriter = styled.div`
+  color: rgba(0, 0, 0, 0.5);
+  font-family: SUIT;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+`;
+
+const StyledRemainTime = styled.div<CardType>`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  color: #6e7177;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+`;
+
+const StyledProbability = styled.div`
+  color: #8e69ff;
+  text-align: right;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+`;
+
+const StyledImg = styled.div`
+  border: 2px dashed #8e69ff;
+  border-radius: 100px;
+  width: 125px;
+`;
+
+export { StyledCard, StyledWriter, StyledRemainTime, StyledTitle, StyledImg, StyledProbability, StyledCardHeader };
