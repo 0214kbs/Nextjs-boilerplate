@@ -6,4 +6,5 @@ export interface CardType {
   id: string;
 
   remainTime: string;
+  surveyType: string;
 }

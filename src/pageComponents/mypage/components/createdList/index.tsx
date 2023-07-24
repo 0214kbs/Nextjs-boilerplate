@@ -77,7 +77,7 @@ const CreatedList = () => {
         {sortedSurveys.map((survey, index) =>
           survey.userId === user.id ? (
             <StyledCard key={index}>
-              <Card remainTime={survey.remainTime} title={survey.title} id={survey.userId} />
+              <Card surveyType={survey.surveyType} remainTime={survey.remainTime} title={survey.title} id={survey.userId} />
             </StyledCard>
           ) : null,
         )}
