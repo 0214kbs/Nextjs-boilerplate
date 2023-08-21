@@ -1,42 +1,23 @@
 "use client";
-import React from "react";
-import { StyledNav, StyledNavLink, NavLinks } from "./NavBar.styled";
-import Image from "next/image";
-import useLoginStore from "@/stores/useLoginStore";
+import navlinks from "./navlinks/Navlinks";
+import { StyledNav, StyledNavLink } from "./NavBar.styled";
+import theme from "@/styles/DefaultTheme";
 
 const NavbarComponent = () => {
-  // zustand
-  const { isLogin, logout, user, userEmail } = useLoginStore();
-  const changeLoginState = () => {
-    logout();
-  };
-
-  const onCreateAccount = () => {
-    console.log("create account");
-  };
-
   return (
-    <header>
+    <header style={{ position: "fixed", width: "100%", zIndex: "100", borderBottom: "1px solid", borderBottomColor: theme.colors.lightgray }}>
       <StyledNav>
-        <StyledNavLink href="/">
-          <Image src="/cow.jpg" priority={true} width={50} height={50} alt="Logo"></Image>
-        </StyledNavLink>
-        <NavLinks>
-          {isLogin ? (
-            <StyledNavLink href="/" onClick={changeLoginState}>
-              로그아웃
-            </StyledNavLink>
-          ) : (
-            <StyledNavLink href="/login">로그인</StyledNavLink>
-          )}
-          {isLogin ? (
-            <StyledNavLink href="/mypage">{user.email || userEmail}</StyledNavLink>
-          ) : (
-            <StyledNavLink href="/signup" onClick={onCreateAccount}>
-              회원가입
-            </StyledNavLink>
-          )}
-        </NavLinks>
+        <img src="/bosun.png" style={{ height: "1.6rem", cursor: "pointer" }} />
+        <div style={{ display: "flex", gap: "25px" }}>
+          {navlinks.map((item) => {
+            const { title, location } = item;
+            return (
+              <StyledNavLink href={location} key={title}>
+                {title}
+              </StyledNavLink>
+            );
+          })}
+        </div>
       </StyledNav>
     </header>
   );

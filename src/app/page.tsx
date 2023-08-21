@@ -1,7 +1,6 @@
+"use client";
+import HomePage from "@/pagecomponents/home";
+
 export default function Home() {
-  return (
-    <div>
-      <h2> home 화면!! </h2>
-    </div>
-  );
+  return <HomePage />;
 }

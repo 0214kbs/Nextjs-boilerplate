@@ -1,7 +1,6 @@
 "use client";
-import React from "react";
-import Mypage from "@/pageComponents/mypage";
+import MypageComponent from "@/pagecomponents/mypage";
 
-export default function page() {
-    return <Mypage></Mypage>;
+export default function Mypage() {
+  return <MypageComponent />;
 }
