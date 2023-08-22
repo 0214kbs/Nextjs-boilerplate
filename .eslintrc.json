@@ -30,14 +30,16 @@
   "plugins": [
     "react",
     "react-hooks",
-    "prettier"
+    "prettier",
+    "import"
   ],
   "rules": {
     "react/react-in-jsx-scope": 0,
     "react/prefer-stateless-function": 0,
     "react/jsx-filename-extension": 0,
     "react/jsx-one-expression-per-line": 0,
-    "no-nested-ternary": 0
+    "no-nested-ternary": 0,
+    "import/no-unresolved": 2
   },
   "globals": {
     "React": "writable"
